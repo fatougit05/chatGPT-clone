@@ -17,9 +17,9 @@ function SideBar() {
     session && query(collection(db, "users", session.user?.email!, "chats")
     ,orderBy("createdAt" , "asc")) 
    )
-   console.log(chats)
+  
   return (
-    <div className='p-2 flex flex-col h-screen'>
+    <div className='flex flex-col h-screen p-2'>
 <div className='flex-1'>
 
 <div>
@@ -28,10 +28,10 @@ function SideBar() {
     <ModelSelection />
     </div>
 
-    <div className='flex flex-col space-y-2 my-2'>
+    <div className='flex flex-col my-2 space-y-2'>
 
 {loading && (
-    <div className='animate-pulse text-center text-white'>
+    <div className='text-center text-white animate-pulse'>
         <p>Loading Chats ...</p>
     </div>
 )}
@@ -48,7 +48,7 @@ function SideBar() {
     <img
     onClick={() => signOut()}
     src={session.user?.image!} alt="Profile pic" 
-    className='h-12 w-12 rounded-full cursor-pointer mx-auto mb-2 hover:opacity-50 '
+    className='w-12 h-12 mx-auto mb-2 rounded-full cursor-pointer hover:opacity-50 '
     />
 }
     </div>
